@@ -5,13 +5,10 @@ import { AddAccountUseCase } from '@/domain/account/use-cases'
 import { EmailValidator } from '../../protocols'
 
 export class SignUpController implements Controller {
-  private readonly emailValidator: EmailValidator
-  private readonly addAccountUseCase: AddAccountUseCase
-
-  constructor (emailValidator: EmailValidator, addAccountUseCase: AddAccountUseCase) {
-    this.emailValidator = emailValidator
-    this.addAccountUseCase = addAccountUseCase
-  }
+  constructor (
+    private readonly emailValidator: EmailValidator,
+    private readonly addAccountUseCase: AddAccountUseCase
+  ) {}
 
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
