@@ -1,19 +1,24 @@
 import { mockAddAccountDTO } from '../../../domain/account/mocks'
 import { DbAddAccountUseCase } from './db-add-account-use-case'
 import { Encrypter } from '@/data/common/protocols'
-import { EncrypterSpy } from '../mocks'
+import { EncrypterSpy } from '../../common/mocks'
+import { datatype } from 'faker'
+import { AddAccountRepositorySpy } from '../mocks/protocols'
 
 type SutTypes = {
   sut: DbAddAccountUseCase
   encrypterSpy: Encrypter
+  addAccountRepositorySpy: AddAccountRepositorySpy
 }
 
 const makeSut = (): SutTypes => {
   const encrypterSpy = new EncrypterSpy()
-  const sut = new DbAddAccountUseCase(encrypterSpy)
+  const addAccountRepositorySpy = new AddAccountRepositorySpy()
+  const sut = new DbAddAccountUseCase(encrypterSpy, addAccountRepositorySpy)
   return {
     sut,
-    encrypterSpy
+    encrypterSpy,
+    addAccountRepositorySpy
   }
 }
 
@@ -32,5 +37,30 @@ describe('DbAddAccount', () => {
     const accountData = mockAddAccountDTO()
     const promise = sut.add(accountData)
     await expect(promise).rejects.toThrow()
+  })
+
+  test('Should call AddAccountRepository with correct values',async () => {
+    const { sut, addAccountRepositorySpy, encrypterSpy } = makeSut()
+    const hashedPassword = datatype.uuid()
+    jest.spyOn(encrypterSpy, 'encrypt').mockResolvedValueOnce(hashedPassword)
+    const addSpy = jest.spyOn(addAccountRepositorySpy, 'add')
+    const accountData = mockAddAccountDTO()
+    await sut.add(accountData)
+    expect(addSpy).toHaveBeenCalledWith(Object.assign({}, accountData, { password: hashedPassword }))
+  })
+
+  test('Should throw if AddAccountRepository throws',async () => {
+    const { sut, addAccountRepositorySpy } = makeSut()
+    jest.spyOn(addAccountRepositorySpy, 'add').mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())))
+    const accountData = mockAddAccountDTO()
+    const promise = sut.add(accountData)
+    await expect(promise).rejects.toThrow()
+  })
+
+  test('Should return an account if on success',async () => {
+    const { sut, addAccountRepositorySpy } = makeSut()
+    const accountData = mockAddAccountDTO()
+    const account = await sut.add(accountData)
+    expect(account).toEqual(addAccountRepositorySpy.account)
   })
 })
