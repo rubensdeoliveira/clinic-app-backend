@@ -1,24 +1,15 @@
 import { mockAddAccountDTO } from '../../../domain/account/mocks'
 import { DbAddAccountUseCase } from './db-add-account-use-case'
 import { Encrypter } from '@/data/common/protocols'
-import { datatype } from 'faker'
+import { EncrypterSpy } from '../mocks'
 
 type SutTypes = {
   sut: DbAddAccountUseCase
   encrypterSpy: Encrypter
 }
 
-const makeEncrypter = (): Encrypter => {
-  class EncrypterSpy implements Encrypter {
-    async encrypt (value: string): Promise<string> {
-      return new Promise(resolve => resolve(datatype.uuid()))
-    }
-  }
-  return new EncrypterSpy()
-}
-
 const makeSut = (): SutTypes => {
-  const encrypterSpy = makeEncrypter()
+  const encrypterSpy = new EncrypterSpy()
   const sut = new DbAddAccountUseCase(encrypterSpy)
   return {
     sut,
