@@ -8,6 +8,6 @@ export class AddAccountUseCaseSpy implements AddAccountUseCase {
 
   async add (account: AddAccountDTO): Promise<AccountModel> {
     this.account = account
-    return new Promise(resolve => resolve(this.accountModel))
+    return this.accountModel
   }
 }
