@@ -1,11 +1,11 @@
 import { AccountModel } from '@/domain/account/entities'
-import faker from 'faker'
+import { name, datatype, internet } from 'faker'
 
 export const mockAccountModel = (): AccountModel => {
   return {
-    id: faker.datatype.uuid(),
-    name: faker.name.findName(),
-    email: faker.internet.email(),
-    password: faker.internet.password()
+    id: datatype.uuid(),
+    name: name.findName(),
+    email: internet.email(),
+    password: internet.password()
   }
 }
