@@ -1,4 +1,4 @@
-import { mockAddAccountDTO } from '../../../../domain/account/mocks'
+import { mockAddAccountDTO } from '@/domain/account/mocks'
 import { AddAccountRequest } from '@/presentation/account/requests'
 
 type AddAccountRequestMockProps = {

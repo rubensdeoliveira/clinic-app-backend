@@ -12,6 +12,8 @@
     "@typescript-eslint/no-misused-promises": "off",
     "@typescript-eslint/no-namespace": "off",
     "@typescript-eslint/naming-convention": "off",
-    "import/export": "off"
+    "import/export": "off",
+    "@typescript-eslint/no-extraneous-class": "off",
+    "@typescript-eslint/no-floating-promises": "off"
   }
 }

@@ -1,8 +1,8 @@
 import { SignUpController } from './sign-up-controller'
-import { MissingParamError, InvalidParamError, ServerError } from '../../../common/errors'
-import { EmailValidator } from '../../protocols'
-import { AddAccountUseCaseSpy, mockAddAccountDTO } from '../../../../domain/account/mocks'
-import { EmailValidatorSpy, mockAddAccountRequest } from '../../mocks'
+import { MissingParamError, InvalidParamError, ServerError } from '@/presentation/common/errors'
+import { EmailValidator } from '@/presentation/account/protocols'
+import { AddAccountUseCaseSpy, mockAddAccountDTO } from '@/domain/account/mocks'
+import { EmailValidatorSpy, mockAddAccountRequest } from '@/presentation/account/mocks'
 
 type SutTypes = {
   sut: SignUpController

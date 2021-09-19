@@ -1,6 +1,6 @@
 import { AccountModel, AddAccountDTO } from '@/domain/account/entities'
 import { AddAccountUseCase } from '@/domain/account/use-cases'
-import { mockAccountModel } from '../../mocks'
+import { mockAccountModel } from '@/domain/account/mocks'
 
 export class AddAccountUseCaseSpy implements AddAccountUseCase {
   account: AddAccountDTO

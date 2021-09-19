@@ -1,6 +1,6 @@
 import { AccountModel, AddAccountDTO } from '@/domain/account/entities'
-import { mockAccountModel } from '../../../../domain/account/mocks'
-import { AddAccountRepository } from '../../protocols'
+import { mockAccountModel } from '@/domain/account/mocks'
+import { AddAccountRepository } from '@/data/account/protocols'
 
 export class AddAccountRepositorySpy implements AddAccountRepository {
   accountData: AddAccountDTO

@@ -1,9 +1,9 @@
-import { mockAddAccountDTO } from '../../../domain/account/mocks'
 import { DbAddAccountUseCase } from './db-add-account-use-case'
+import { mockAddAccountDTO } from '@/domain/account/mocks'
 import { Encrypter } from '@/data/common/protocols'
-import { EncrypterSpy } from '../../common/mocks'
+import { EncrypterSpy } from '@/data/common/mocks'
+import { AddAccountRepositorySpy } from '@/data/account/mocks'
 import { datatype } from 'faker'
-import { AddAccountRepositorySpy } from '../mocks/protocols'
 
 type SutTypes = {
   sut: DbAddAccountUseCase
