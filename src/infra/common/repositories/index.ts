@@ -1,4 +1,5 @@
 export * from './common-repository-type'
+export * from './common-use-case-props-type'
 export * from './memory'
 export * from './repository-type'
 export * from './typeorm'

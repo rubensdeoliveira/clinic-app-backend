@@ -1,0 +1,14 @@
+{
+  "name": "default",
+  "type": "postgres",
+  "host": "",
+  "port": 5432,
+  "username": "",
+  "password": "",
+  "database": "",
+  "entities": ["./src/infra/**/repositories/**/typeorm/entities/*.entity.ts"],
+  "migrations": ["./src/infra/common/repositories/typeorm/migrations/*-migration.ts"],
+  "cli": {
+    "migrationsDir": "./src/infra/common/repositories/typeorm/migrations"
+  }
+}

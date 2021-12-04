@@ -1,5 +1,4 @@
-import { EntityModel } from '@/domain/common/entities'
-import { CreateEntityDTO } from '@/domain/common/dtos'
+import { CreateEntityDTO, EntityModel } from '@/domain/common'
 
 export interface CreateEntityRepository<EntityType extends EntityModel> {
   create: (params: CreateEntityDTO<EntityType>) => Promise<EntityType>

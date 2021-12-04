@@ -1,8 +1,8 @@
-import { EntityModel } from '@/domain/common/entities'
-import { datatype, date } from 'faker'
+import { EntityModel } from '@/domain/common'
+import faker from 'faker'
 
 export const mockEntityModel = (): EntityModel => ({
-  id: datatype.uuid(),
-  created_at: date.past(),
-  updated_at: date.past()
+  id: faker.datatype.uuid(),
+  created_at: faker.date.past(),
+  updated_at: faker.date.past()
 })

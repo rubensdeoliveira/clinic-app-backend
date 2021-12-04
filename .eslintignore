@@ -1,6 +1,9 @@
 node_modules
-dist
+public
 coverage
-./data
-requirements
+.scannerwork
 .vscode
+/data
+*.hbs
+*.ejs
+*.json

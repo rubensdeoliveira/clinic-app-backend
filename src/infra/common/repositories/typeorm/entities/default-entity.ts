@@ -1,5 +1,6 @@
+import 'module-alias/register'
 import { CreateDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
-import { EntityModel } from '@/domain/common/entities'
+import { EntityModel } from '@/domain/common'
 
 export class DefaultEntity implements EntityModel {
   @PrimaryGeneratedColumn('uuid')
