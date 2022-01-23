@@ -1,0 +1,5 @@
+export * from './create-patient.controller'
+export * from './delete-patient.controller'
+export * from './get-patient.controller'
+export * from './list-patients.controller'
+export * from './update-patient.controller'

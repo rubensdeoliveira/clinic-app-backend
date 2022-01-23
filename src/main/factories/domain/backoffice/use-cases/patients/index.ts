@@ -1,0 +1,5 @@
+export * from './create-patient.use-case.factory'
+export * from './delete-patient-by-id.use-case.factory'
+export * from './get-patient-by-id.use-case.factory'
+export * from './list-patients.use-case.factory'
+export * from './update-patient-by-id.use-case.factory'

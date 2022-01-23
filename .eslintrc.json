@@ -1,9 +1,14 @@
 {
-  "extends": "standard-with-typescript",
+  "extends": [
+    "standard-with-typescript", 
+    "plugin:prettier/recommended"
+  ],
   "parserOptions": {
     "project": "./tsconfig.json"
   },
+  "plugins": ["prettier"],
   "rules": {
+    "no-control-regex": "off",
     "@typescript-eslint/no-redeclare": "off",
     "@typescript-eslint/consistent-type-definitions": "off",    
     "@typescript-eslint/strict-boolean-expressions": "off",
@@ -11,6 +16,16 @@
     "@typescript-eslint/restrict-template-expressions": "off",
     "@typescript-eslint/prefer-optional-chain": "off",
     "@typescript-eslint/no-extraneous-class": "off",
-    "@typescript-eslint/no-misused-promises": "off"
+    "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/return-await": "off",
+    "@typescript-eslint/no-namespace": "off",
+    "import/export": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "@typescript-eslint/naming-convention": "off"
   }
 }

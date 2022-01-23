@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
+    "incremental": true,
     "outDir": "dist",
-    "rootDir": "src",
-    "target": "es2019",
+    "rootDirs": ["src"],
+    "target": "es2021",
     "sourceMap": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
@@ -12,8 +13,9 @@
     "baseUrl": "src",
     "paths": {
       "@/*": ["*"],
-      "@/tests/*": ["../tests/*"]
     },
+    "noImplicitOverride": true,
+    "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
   },

@@ -1,1 +1,1 @@
-export * from './common-repository-typeorm'
+export * from './typeorm.repository'

@@ -1,9 +1,9 @@
 node_modules
 public
 coverage
+.kusky
 .scannerwork
 .vscode
-/data
-*.hbs
-*.ejs
 *.json
+*.pem
+/*.js
